@@ -1,4 +1,13 @@
-name: test
+from langgraph_sdk import get_client
+client = get_client(url=<DEPLOYMENT_URL>, api_key=<API_KEY>)
+
+async for chunk in client.runs.stream(
+    None,  
+    assistant_id,
+    input=inputs,
+    stream_mode="updates"
+):
+    print(chunk.data)name: test
 
 on:
   workflow_call:
